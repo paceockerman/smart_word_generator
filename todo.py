@@ -1,5 +1,5 @@
 # Summary: Train an algorithm to generate words that one likes.
-# TODO: First iteration - create letter distribution
+#  First iteration - create letter distribution
 
 
 # Step 1: Generate a word via gen_word(params)
