@@ -35,6 +35,9 @@ def update_weights(word, features):
     if res == '2':
         for feature in word.features:
             features[feature].current_weight += features[feature].change_rate
+        # TODO: make this file customizable
+        with open("good_words.txt", 'a', encoding='utf-8') as f:
+            f.write(str(word) + "\n")
     if res == '1':
         for feature in word.features:
             # Prevent weight from going below 1, so it always has representation
@@ -47,7 +50,8 @@ def update_weights(word, features):
 def main():
     # TODO have options on how to get features
 
-    features = load_features()
+    # features = load_features()
+    features = create_features(lang_def.features)
     is_done = False
     while not is_done:
         is_done = update_weights(gen_word(features), features)
