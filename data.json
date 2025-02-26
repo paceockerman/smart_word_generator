@@ -5,7 +5,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 3
   },
   "u": {
     "py/object": "feature.Feature",
@@ -13,7 +13,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 7
+    "current_weight": 4
   },
   "\u016b": {
     "py/object": "feature.Feature",
@@ -21,7 +21,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 12
+    "current_weight": 6
   },
   "e": {
     "py/object": "feature.Feature",
@@ -29,7 +29,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 9
+    "current_weight": 11
   },
   "\u0113": {
     "py/object": "feature.Feature",
@@ -37,7 +37,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 4
   },
   "\u00e2": {
     "py/object": "feature.Feature",
@@ -45,7 +45,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 4
   },
   "\u014d": {
     "py/object": "feature.Feature",
@@ -53,7 +53,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 8
+    "current_weight": 4
   },
   "a": {
     "py/object": "feature.Feature",
@@ -61,7 +61,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 11
+    "current_weight": 4
   },
   "\u0101": {
     "py/object": "feature.Feature",
@@ -77,7 +77,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 9
+    "current_weight": 7
   },
   "t": {
     "py/object": "feature.Feature",
@@ -93,7 +93,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 11
   },
   "m": {
     "py/object": "feature.Feature",
@@ -101,7 +101,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 9
   },
   "n": {
     "py/object": "feature.Feature",
@@ -109,7 +109,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 8
   },
   "s": {
     "py/object": "feature.Feature",
@@ -117,7 +117,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 9
+    "current_weight": 7
   },
   "w": {
     "py/object": "feature.Feature",
@@ -125,7 +125,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 11
+    "current_weight": 10
   },
   "r": {
     "py/object": "feature.Feature",
@@ -133,7 +133,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 7
   },
   "l": {
     "py/object": "feature.Feature",
@@ -141,7 +141,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 8
   },
   "sh": {
     "py/object": "feature.Feature",
@@ -149,7 +149,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 8
+    "current_weight": 7
   },
   "ps": {
     "py/object": "feature.Feature",
@@ -165,7 +165,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 9
   },
   "pl": {
     "py/object": "feature.Feature",
@@ -181,7 +181,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 8
+    "current_weight": 9
   },
   "tsh": {
     "py/object": "feature.Feature",
@@ -189,7 +189,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 11
+    "current_weight": 10
   },
   "tl": {
     "py/object": "feature.Feature",
@@ -205,7 +205,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 11
+    "current_weight": 10
   },
   "ksh": {
     "py/object": "feature.Feature",
@@ -213,7 +213,7 @@
     "ftype": "grapheme",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 10
+    "current_weight": 7
   },
   "CV": {
     "py/object": "feature.Feature",
@@ -221,7 +221,7 @@
     "ftype": "syllable_structure",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 8
+    "current_weight": 4
   },
   "V": {
     "py/object": "feature.Feature",
@@ -229,6 +229,6 @@
     "ftype": "syllable_structure",
     "start_weight": 10,
     "change_rate": 1,
-    "current_weight": 5
+    "current_weight": 1
   }
 }
