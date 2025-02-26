@@ -31,12 +31,12 @@ def gen_word(features, extant_words):
     #   ie there are 3 'CV' tags in a CVCVCV word, which may or may not be a good feature
     return word
 
-def update_weights(word, features, word_file):
+def update_weights(word, features, extant_words):
     res = input(str(word)+': ')
     if res == '2':
         for feature in word.features:
             features[feature].current_weight += features[feature].change_rate
-        word_file.write(str(word) + "\n")
+        extant_words.append(str(word))
     if res == '1':
         for feature in word.features:
             # Prevent weight from going below 1, so it always has representation
@@ -47,20 +47,22 @@ def update_weights(word, features, word_file):
 
 
 def main():
+    # TODO move this and other stuff to a config somewhere
+    good_words_filename = "good_words.txt"
+
     # TODO have options on how to get features
     # features = load_features()
     features = create_features(lang_def.features)
-    # TODO: make this file name customizable
-    word_file = open('good_words.txt', 'a', encoding='utf-8')
-    extant_words = []
-    with open('good_words.txt', 'r', encoding='utf-8') as f:
-        for line in f:
-            extant_words.append(line.strip())
+    with open(good_words_filename, 'r', encoding='utf-8') as f:
+        extant_words = [line.strip() for line in f]
     print(extant_words)
     is_done = False
     while not is_done:
-        is_done = update_weights(gen_word(features, extant_words), features, word_file)
+        is_done = update_weights(gen_word(features, extant_words), features, extant_words)
 
+    # Save features and found words
+    with open(good_words_filename, 'w', encoding='utf-8') as f:
+        f.writelines(word + '\n' for word in extant_words)
     write_features(features)
 
 main()

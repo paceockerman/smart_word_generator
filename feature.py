@@ -12,14 +12,15 @@ class Feature:
         return f'({self.value}-{self.current_weight})'
 
 
-def load_features(file="data.json"):
+def load_features(file="data.json", empty=False):
+    if empty:
+        return dict()
     with open(file, "r") as f:
         return jsonpickle.decode(f.read())
 
-# TODO: make this not like this (langdeffeatures)
+# TODO: this doesn't need to exist
 def create_features(langdeffeatures):
     # Save features as a dict of value, Feature
-    # TODO: make a better way to define features
     return dict([(value, Feature(value, ftype)) for (value, ftype) in langdeffeatures])
 
 def write_features(features, file="data.json"):
