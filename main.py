@@ -1,27 +1,17 @@
-import random
+# TODO: make this read a custom file later
 import lang_def
 from feature import *
+from word import Word
 import jsonpickle
 # TODO: make UI faster using keystrokes instead of input()
 from pynput import keyboard
-
-
 
 features = create_features(lang_def.features)
 write_features(features)
 features = load_features()
 
 
-
-
 # TODO: wrap everything into a program
-
-
-
-def random_feature(choices, features):
-    probabilities = [features[choice].current_weight for choice in choices]
-    return random.choices(choices, probabilities)[0]
-
 
 # * -> Word()
 def gen_word(features):
@@ -44,17 +34,7 @@ def gen_word(features):
 
 
 
-# Definition of a word: text, list of graphemes
-class Word:
-    def __init__(self, text, features):
-        self.text = text
-        self.features = features
-    def __str__(self):
-        return self.text
-    def append(self, text):
-        self.text += text
-    def add_features(self, features):
-        self.features.extend(features)
+
 
 def update_weights(word, features):
     res = input(str(word)+': ')

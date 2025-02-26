@@ -1,4 +1,5 @@
 import jsonpickle
+import random
 
 class Feature:
     def __init__(self, value, ftype, start_weight=10, change_rate=1, current_weight=10):
@@ -24,3 +25,7 @@ def create_features(langdeffeatures):
 def write_features(features, file="data.json"):
     with open(file, "w") as f:
         f.write(jsonpickle.encode(features, indent=2))
+
+def random_feature(choices, features):
+    probabilities = [features[choice].current_weight for choice in choices]
+    return random.choices(choices, probabilities)[0]
