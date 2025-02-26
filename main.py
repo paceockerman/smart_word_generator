@@ -6,12 +6,11 @@ import jsonpickle
 # TODO: make UI faster using keystrokes instead of input()
 from pynput import keyboard
 
-features = create_features(lang_def.features)
-write_features(features)
-features = load_features()
 
+# features = create_features(lang_def.features)
+# write_features(features)
+# features = load_features()
 
-# TODO: wrap everything into a program
 
 # * -> Word()
 def gen_word(features):
@@ -31,11 +30,6 @@ def gen_word(features):
     # TODO: consider making the features a *set* that that structures dont jump it a bunch?
     return word
 
-
-
-
-
-
 def update_weights(word, features):
     res = input(str(word)+': ')
     if res == '2':
@@ -45,12 +39,20 @@ def update_weights(word, features):
         for feature in word.features:
             # Prevent weight from going below 1, so it always has representation
             features[feature].current_weight = max(1, features[feature].current_weight- features[feature].change_rate)
+    if res == '3':
+        return True
+    return False
 
 
-# Loop to learn
-while True:
-    f_chain = ''
-    for feature in features:
-        f_chain += str(features[feature]) + " "
-    print(f_chain)
-    update_weights(gen_word(features), features)
+def main():
+    # TODO have options on how to get features
+
+    features = load_features()
+    is_done = False
+    while not is_done:
+        is_done = update_weights(gen_word(features), features)
+
+    write_features(features)
+    pass
+
+main()
