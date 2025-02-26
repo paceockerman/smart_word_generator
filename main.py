@@ -1,12 +1,18 @@
 import random
 import lang_def
 from feature import *
+import jsonpickle
+# TODO: make UI faster using keystrokes instead of input()
 from pynput import keyboard
 
 
-# TODO: Import this from a file
 
-features = dict([(feature, Feature(feature, "morpheme")) for feature in lang_def.features])
+features = create_features(lang_def.features)
+write_features(features)
+features = load_features()
+
+
+
 
 # TODO: wrap everything into a program
 
@@ -59,7 +65,6 @@ def update_weights(word, features):
         for feature in word.features:
             # Prevent weight from going below 1, so it always has representation
             features[feature].current_weight = max(1, features[feature].current_weight- features[feature].change_rate)
-
 
 
 # Loop to learn

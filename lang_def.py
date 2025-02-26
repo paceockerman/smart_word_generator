@@ -7,4 +7,5 @@ syllable_structures = ['CV', 'V']
 
 
 # REQUIRED
-features = graphemes + syllable_structures
+features = ([(grapheme, "grapheme") for grapheme in graphemes]
+            + [(syllable_structure, "syllable_structure") for syllable_structure in syllable_structures])
