@@ -1,9 +1,8 @@
 # TODO: make this read a custom file later
-import lang_def
-from feature import *
-from word import Word
+from utils import lang_def
+from utils.feature import *
+from utils.word import Word
 # TODO: make UI faster using keystrokes instead of input()
-from pynput import keyboard
 
 
 # * -> Word()
@@ -48,7 +47,7 @@ def update_weights(word, features, extant_words):
 
 def main():
     # TODO move this and other stuff to a config somewhere
-    good_words_filename = "good_words.txt"
+    good_words_filename = "user_data/good_words.txt"
 
     # TODO have options on how to get features
     # features = load_features()

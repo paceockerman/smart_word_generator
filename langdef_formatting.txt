@@ -1,0 +1,15 @@
+featurefile = "file_name.json"
+goodwordfile = "good_word_file.txt"
+
+OPTIONAL
+loadfeatures = None
+
+features = morphemes, structures, // OPTIONAL OTHER ONES?
+
+
+// TODO add a meta style 'word' that allows restrictions on initials and finals etc
+structures = CV V CVN
+
+C = b v n
+V = a i u
+N = n
