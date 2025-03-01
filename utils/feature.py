@@ -12,16 +12,12 @@ class Feature:
         return f'({self.value}-{self.current_weight})'
 
 
-def load_features(file="data.json", empty=False):
+def load_features(langdeffeatures, file="data.json", empty=False):
+    # TODO this should create features for all graphemes & structures by default
     if empty:
-        return dict()
+        return dict([(value, Feature(value, ftype)) for (value, ftype) in langdeffeatures])
     with open(file, "r") as f:
         return jsonpickle.decode(f.read())
-
-# TODO: this doesn't need to exist
-def create_features(langdeffeatures):
-    # Save features as a dict of value, Feature
-    return dict([(value, Feature(value, ftype)) for (value, ftype) in langdeffeatures])
 
 def write_features(features, file="data.json"):
     with open(file, "w") as f:

@@ -2,13 +2,10 @@
 from utils import lang_def
 from utils.feature import *
 from utils.word import Word
-# TODO: make UI faster using keystrokes instead of input()
-
+# TODO: make UI faster using keystrokes instead of input() - or maybe pygame
 
 # * -> Word()
 def gen_word(features, extant_words):
-    # TODO: have features be derived from the words given to the program
-    #   every time a new feature is gotten from a word, add it to the feature list
     syllable_count = random.randint(1, 4)
     word = Word("", [])
     for _ in range(syllable_count):
@@ -50,14 +47,20 @@ def main():
     good_words_filename = "user_data/good_words.txt"
 
     # TODO have options on how to get features
-    # features = load_features()
-    features = create_features(lang_def.features)
+    features = load_features(lang_def.features, empty=True)
+    #features = create_features(lang_def.features)
     with open(good_words_filename, 'r', encoding='utf-8') as f:
         extant_words = [line.strip() for line in f]
     print(extant_words)
     is_done = False
     while not is_done:
-        is_done = update_weights(gen_word(features, extant_words), features, extant_words)
+        word = gen_word(features, extant_words)
+        # Add new features when found
+        for feature_value in word.features:
+            if feature_value not in features:
+                # TODO: how do i figure out which type this is? Maybe Word has to carry it
+                features[feature_value] = Feature(feature_value, 'default')
+        is_done = update_weights(word, features, extant_words)
 
     # Save features and found words
     with open(good_words_filename, 'w', encoding='utf-8') as f:

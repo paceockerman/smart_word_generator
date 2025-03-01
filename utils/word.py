@@ -1,4 +1,3 @@
-# Definition of a word: text, list of graphemes
 class Word:
     def __init__(self, text, features):
         self.text = text
