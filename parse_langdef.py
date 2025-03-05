@@ -1,20 +1,5 @@
-import random
-from pymongo import MongoClient
-import json
-
-with open('langdef.json', 'r') as f:
-    langdef = json.load(f)
-
-client = MongoClient('localhost', 27017)
-db = client['main_db']
-collection = db['langs']
-# lang_id = collection.insert_one(langdef).inserted_id
-# print(lang_id)
-print(collection.find_one())
-
-
-def rand(d):
-    return random.choices(list(d.keys()), d.values())[0]
+from utils.mongo_interface import setup_mongo
+from utils.helpers import rand
 
 
 def generate_word(langdef, x):
@@ -48,8 +33,13 @@ def update_features(langdef, features, change):
         langdef['mappings'][mtype][morpheme] += change
 
 
-l = langdef
-for i in range(1):
-    word, features = generate_word(l, 0)
-    update_features(l, features, 1)
-print(l['num_syllables'].values())
+def main():
+    collection = setup_mongo()
+    langdef = collection.find_one()
+    for i in range(1):
+        word, features = generate_word(langdef, 0)
+        print(word)
+        update_features(langdef, features, 1)
+
+
+main()

@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "name": "Reuma",
+    "author": "Pace"
+  },
   "structures": {
     "CV": 1,
     "V": 1
