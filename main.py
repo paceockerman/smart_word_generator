@@ -1,8 +1,6 @@
-# TODO: make this read a custom file later
 from utils import lang_def
 from utils.feature import *
 from utils.word import Word
-# TODO: make UI faster using keystrokes instead of input() - or maybe pygame
 
 # * -> Word()
 def gen_word(features, extant_words):
