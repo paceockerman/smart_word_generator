@@ -30,7 +30,9 @@ def update_features(langdef, features, change):
         langdef['structures'][structure] += change
     for morpheme in features['morphemes']:
         mtype, morpheme = morpheme.split('.')
-        langdef['mappings'][mtype][morpheme] += change
+        v = langdef['mappings'][mtype][morpheme]
+        # Keep above zero so it can still be chosen
+        langdef['mappings'][mtype][morpheme] = max(v + change, 1)
 
 
 def main():
