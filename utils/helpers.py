@@ -1,5 +1,5 @@
 import random
 
 
-def rand(d):
-    return random.choices(list(d.keys()), d.values())[0]
+def rand(d: dict[str, int]):
+    return random.choices(list(d.keys()), list(d.values()))[0]

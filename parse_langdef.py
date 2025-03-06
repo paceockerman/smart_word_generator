@@ -2,7 +2,7 @@ from utils.mongo_interface import setup_mongo
 from utils.helpers import rand
 
 
-def generate_word(langdef, x):
+def generate_word(langdef: dict):
     word = ''
     features = {
         'num_syllables': 0,
@@ -23,14 +23,14 @@ def generate_word(langdef, x):
     return word, features
 
 
-def update_features(langdef, features, change):
+def update_features(langdef: dict[str, dict], features: dict[str, int | list[str]], change: int):
     # TODO we can do smarter learning than just adding 1
     langdef['num_syllables'][features['num_syllables']] += change
     for structure in features['structures']:
         langdef['structures'][structure] += change
     for morpheme in features['morphemes']:
         mtype, morpheme = morpheme.split('.')
-        v = langdef['mappings'][mtype][morpheme]
+        v: int = langdef['mappings'][mtype][morpheme]
         # Keep above zero so it can still be chosen
         langdef['mappings'][mtype][morpheme] = max(v + change, 1)
 
@@ -39,7 +39,7 @@ def main():
     collection = setup_mongo()
     langdef = collection.find_one()
     for i in range(1):
-        word, features = generate_word(langdef, 0)
+        word, features = generate_word(langdef)
         print(word)
         update_features(langdef, features, 1)
 
